@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      img {
+        display: block;
+        font-family: sans-serif;
+        font-weight: 300;
+        height: auto;
+        line-height: 2;
+        position: relative;
+        text-align: center;
+        width: 100%;
+      }
+
+      img::before {
+        content: "Sorry, this image is unavailable.";
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      img::after {
+        content: "(url: " attr(src) ")";
+        display: block;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="https://nowhere.to.be/found.jpg" />
+  </body>
+</html>

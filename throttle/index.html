@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>节流</title>
+  </head>
+  <body>
+    <h2>throttle</h2>
+    <div
+      class="draggable"
+      draggable="true"
+      style="width: 100px; height: 100px; background-color: aquamarine"
+    ></div>
+
+    <script>
+      const draggable = document.querySelector(".draggable");
+
+      function throttle(fn, delay = 300) {
+        let timer = 0;
+
+        return function () {
+          if (timer) return;
+
+          timer = setTimeout(() => {
+            fn.apply(this, arguments);
+            timer = 0;
+          }, delay);
+        };
+      }
+
+      draggable.addEventListener(
+        "drag",
+        throttle((e) => {
+          console.log("e", e.offsetX, e.offsetY);
+        }, 500)
+      );
+    </script>
+  </body>
+</html>
